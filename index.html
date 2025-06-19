@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Myntra Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    /* Header styles */
+    .navbar {
+      background-color: #d81b60;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .navbar .logo span {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+    }
+
+  <div 
+    class="search-container">
+  <input type="text" id="searchInput" placeholder="Search products..." />
+  <button onclick="searchProduct()">Search</button>
+</div>
+
+
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+    }
+
+    .navbar nav ul li {
+      display: inline;
+    }
+
+    .navbar nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navbar nav ul li a:hover {
+      color: #ffe082;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+      background: #fff0f5;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      color: #d81b60;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Category Grid */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
+      padding: 30px;
+    }
+
+    .category {
+      background: #ffe4ec;
+      border-radius: 12px;
+      text-align: center;
+      padding: 20px 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .category img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #880e4f;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Myntra Logo">
+      <span>Myntra</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="mobile.html">Mobile</a></li>
+
+        <li><a href="fashion.html">Fashion</a></li>
+
+        <li><a href="electronics.html">Electronics</a></li>
+
+        <li><a href="flights.html">Flight Bookings</a></li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+
+        <li><a href="login.html">Login</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Myntra</h1>
+    <p>This is an e-commerce web application where customers can explore and purchase products in categories like fashion, electronics, and mobile phones. Users can also book flights directly.</p>
+
+  <!-- Category Section -->
+  <section class="categories">
+    <div class="category" onclick="location.href='mobile.html'">
+      <img src="images/iphone.jpg" alt="Mobile">
+      <h3>Mobile</h3>
+    </div>
+    <div class="category" onclick="location.href='fashion.html'">
+      <img src="images/fashion family.jpg" alt="Fashion">
+      <h3>Fashion</h3>
+    </div>
+    <div class="category" onclick="location.href='electronics.html'">
+      <img src="images/electronics.jpg" alt="Electronics">
+      <h3>Electronics</h3>
+    </div>
+    <div class="category" onclick="location.href='flights.html'">
+      <img src="images/flight image.jpg" alt="Flights">
+      <h3>Flights</h3>
+    </div>
+    <div class="category" onclick="location.href='contact.html'">
+      <img src="images/contact us.jpg" alt="Contact Us">
+      <h3>Contact Us</h3>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Myntra  | All rights reserved.
+
+    
+</body>
+</html>
+<script>
+  const searchInput = document.querySelector('.search-bar');
+  const categoryCards = document.querySelectorAll('.category-card');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+
+    categoryCards.forEach(card => {
+      const categoryName = card.querySelector('h3').textContent.toLowerCase();
+      if (categoryName.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+  <!-- Footer -->
+  <footer>
+
+
+  <!-- Search functionality script -->
+  <script>
+    const searchInput = document.querySelector('.search-bar');
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+
+      categoryCards.forEach(card => {
+        const categoryName = card.querySelector('h3').textContent.toLowerCase();
+        if (categoryName.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

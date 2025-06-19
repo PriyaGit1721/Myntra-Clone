@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fashion - Myntra Clone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: hsl(328, 77%, 55%);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .page-title {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .card button {
+      padding: 8px 12px;
+      background-color: #ff3f6c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #eee;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Myntra Clone</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="fashion.html">Fashion</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <h2>Fashion Collection</h2>
+      <p>Latest trends for Men, Women, and Kids</p>
+    </section>
+
+    <section class="product-grid">
+      <div class="card">
+        <img src="images/men fashion.jpg" alt="Men's Shirt" />
+        <h3>Men's Casual Shirt</h3>
+        <p>₹899</p>
+        <button onclick="addToCart('Men\'s Casual Shirt', 899, 'images/men fashion.jpg')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/fashion women dress.jpg" alt="Women's Dress" />
+        <h3>Women's Dress</h3>
+        <p>₹1299</p>
+        <button onclick="addToCart('Women\'s Dress', 1299, 'images/fashion women dress.jpg')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/kids boy dress.jpg" alt="Kids Boy Dress" />
+        <h3>Kids Party Wear</h3>
+        <p>₹749</p>
+        <button onclick="addToCart('Kids Boy Dress', 749, 'images/kids boy dress.jpg')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/kids girl image.jpg" alt="Kids Girl Dress" />
+        <h3>Kids Girl Party Wear</h3>
+        <p>₹749</p>
+        <button onclick="addToCart('Kids Girl Dress', 749, 'images/kids girl image.jpg')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/footwear for women.jpg" alt="Women's Footwear" />
+        <h3>Footwear for Women</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Women\'s Footwear', 999, 'images/footwear for women.jpg')">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="images/footwear for men.jpg" alt="Men's Footwear" />
+        <h3>Footwear for Men</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Men\'s Footwear', 999, 'images/footwear for men.jpg')">Add to Cart</button>
+      </div>
+
+<div class="card">
+        <img src="images/perfume.jpg" alt="perfume" />
+        <h3>perfume</h3>
+        <p>₹599</p>
+        <button onclick="addToCart('perfume', 599, 'images/perfume.jpg')">Add to Cart</button>
+      </div>
+
+    <div class="card">
+        <img src="images/lipstick.jpg" alt="lipstick" />
+        <h3>lipstick</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('lipstick', 399, 'images/lipstick.jpg')">Add to Cart</button>
+      </div>
+
+  <div class="card">
+        <img src="images/hand bag.jpg" alt="handbag" />
+        <h3>handbag</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('hand bag', 799, 'images/hand bag.jpg')">Add to Cart</button>
+      </div>
+
+    <div class="card">
+        <img src="images/sunscreen.jpg" alt="sunscreen" />
+        <h3>Dot&key sunscreen</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('sunscreen', 499, 'images/sunscreen.jpg')">Add to Cart</button>
+      </div>  
+  
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Myntra Clone. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name: name, price: price, image: image });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
+</body>
+</html>

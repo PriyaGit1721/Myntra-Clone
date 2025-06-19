@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Products - Myntra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f1f1f1;
+    }
+
+    header {
+      background-color: #e91e8c;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .page-title {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .product {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 220px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 16px;
+      color: green;
+    }
+
+    .product button {
+      background-color: #e91e8c;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #e91e8c;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Myntra</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mobile.html">Mobile</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <div class="page-title">Mobile Collection</div>
+
+  <div class="product-container">
+
+    <!-- Product List -->
+    <div class="product">
+      <img src="images/redmi note 13.jpg" alt="Redmi Note 13">
+      <h3>Redmi Note 13</h3>
+      <p>₹13,999</p>
+      <button onclick="addToCart('Redmi Note 13', 13999, 'images/redmi note 13.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/samsung galaxy.jpg" alt="Samsung Galaxy A14">
+      <h3>Samsung Galaxy A14</h3>
+      <p>₹15,499</p>
+      <button onclick="addToCart('Samsung Galaxy A14', 15499, 'images/samsung galaxy.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/realme image.jpg" alt="Realme Narzo 60X">
+      <h3>Realme Narzo 60X</h3>
+      <p>₹12,999</p>
+      <button onclick="addToCart('Realme Narzo 60X', 12999, 'images/realme image.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/iphone.jpg" alt="iPhone 14">
+      <h3>iPhone 14</h3>
+      <p>₹69,999</p>
+      <button onclick="addToCart('iPhone 14', 69999, 'images/iphone.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/realme 5i.jpg" alt="Realme 5i">
+      <h3>Realme 5i</h3>
+      <p>₹59,999</p>
+      <button onclick="addToCart('Realme 5i', 59999, 'images/realme 5i.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/vivo v50.jpg" alt="Vivo V50">
+      <h3>Vivo V50</h3>
+      <p>₹49,999</p>
+      <button onclick="addToCart('Vivo V50', 49999, 'images/vivo v50.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- ✅ Add More Products Easily Below This Line -->
+    <div class="product">
+      <img src="images/oneplus12.jpg" alt="OnePlus 12">
+      <h3>OnePlus 12</h3>
+      <p>₹64,999</p>
+      <button onclick="addToCart('OnePlus 12', 64999, 'images/oneplus.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/motorola.jpg" alt="Motorola Edge">
+      <h3>Motorola Edge 50 Pro</h3>
+      <p>₹31,999</p>
+      <button onclick="addToCart('Motorola Edge 50 Pro', 31999, 'images/Motorola Edge 50 Pro.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/vivo v30.jpg" alt="Vivo V30 5G">
+      <h3>Vivo V30 5G</h3>
+      <p>₹29,499</p>
+      <button onclick="addToCart('Vivo V30 5G', 29499, 'images/vivo v30.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/tecno.jpg" alt="tecno">
+      <h3>tecno</h3>
+      <p>₹19,999</p>
+      <button onclick="addToCart('tecno', 19999, 'images/tecno.jpg')">Add to Cart</button>
+    </div>
+
+
+  </div>
+
+  <footer>
+    © 2025 Myntra. All rights reserved.
+  </footer>
+
+  <script>
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product already exists in cart
+    let existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+      // Increase quantity
+      existingProduct.quantity += 1;
+    } else {
+      // Add new product with quantity 1
+      cart.push({ name, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${name} has been added to your cart.`);
+  }
+</script>
+
+</body>
+</html>

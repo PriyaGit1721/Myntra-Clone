@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electronics - Myntra</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: hsl(320, 79%, 52%);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar ul li {
+      display: inline;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .page-title {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .card button {
+      padding: 8px 12px;
+      background-color: #ff3f6c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #eee;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Myntra Clone</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="fashion.html">Fashion</a></li>
+        <li><a href="flights.html">Flight Bookings</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cart.html">🛒 Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <h2>Electronics</h2>
+      <p>Top gadgets and accessories for every need</p>
+    </section>
+
+    <section class="product-grid">
+      <div class="card">
+        <img src="images/hp laptop.jpg" alt="HP Pavilion Laptop" />
+        <h3>HP Pavilion Laptop</h3>
+        <p>₹59,999</p>
+        <button class="add-to-cart" data-name="HP Pavilion Laptop" data-price="59999" data-image="images/hp laptop.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/boat wireless headphone.jpg" alt="Boat Wireless Headphones" />
+        <h3>Boat Wireless Headphones</h3>
+        <p>₹2,499</p>
+        <button class="add-to-cart" data-name="Boat Wireless Headphones" data-price="2499" data-image="images/boat wireless headphone.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/smart watch.jpg" alt="Noise Smartwatch" />
+        <h3>Noise Smartwatch</h3>
+        <p>₹3,999</p>
+        <button class="add-to-cart" data-name="Noise Smartwatch" data-price="3999" data-image="images/smart watch.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/cannon camera.jpg" alt="Canon DSLR Camera" />
+        <h3>Canon DSLR Camera</h3>
+        <p>₹45,000</p>
+        <button class="add-to-cart" data-name="Canon DSLR Camera" data-price="45000" data-image="images/cannon camera.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/samsung fridge.jpg" alt="samsung fridge" />
+        <h3>samsung fridge</h3>
+        <p>₹55,000</p>
+        <button class="add-to-cart" data-name="samsung fridge" data-price="55000" data-image="images/samsung fridge.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/washing machine.jpg" alt="washing machine" />
+        <h3>washing machine</h3>
+        <p>₹85,000</p>
+        <button class="add-to-cart" data-name="washing machine" data-price="85000" data-image="images/washing machine.jpg">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="images/oven.jpg" alt="oven" />
+        <h3>oven</h3>
+        <p>₹25,000</p>
+        <button class="add-to-cart" data-name="oven" data-price="25000" data-image="images/oven.jpg">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Myntra Clone. All rights reserved.</p>
+  </footer>
+
+  <script>
+    if (!localStorage.getItem('cart')) {
+      localStorage.setItem('cart', JSON.stringify([]));
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function () {
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        const image = this.getAttribute('data-image');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ name, price, image, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+      });
+    });
+  </script>
+</body>
+</html>

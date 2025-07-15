@@ -134,7 +134,28 @@
   <script>
     document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Login submitted!');
+
+      const data = {
+        email: document.getElementById('loginEmail').value,
+        password: document.getElementById('loginPassword').value
+      };
+
+      fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(async (res) => {
+        const result = await res.json();
+        alert(result.message);
+        if (res.ok) {
+          window.location.href = 'index.html';
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Login failed.");
+      });
     });
   </script>
 </body>

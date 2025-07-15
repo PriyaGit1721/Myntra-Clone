@@ -145,6 +145,38 @@
     <p>&copy; 2025 Myntra Clone. All rights reserved.</p>
   </footer>
 
-  <script src="validation.js"></script>
+  <script>
+    function validateSignupForm() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email, password })
+      })
+      .then(async (res) => {
+        const result = await res.json();
+        alert(result.message);
+        if (res.status === 201) {
+          window.location.href = 'login.html';
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Signup failed.");
+      });
+
+      return false;
+    }
+  </script>
 </body>
 </html>
